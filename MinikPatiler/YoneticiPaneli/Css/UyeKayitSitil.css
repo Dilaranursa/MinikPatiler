@@ -1,0 +1,170 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial,sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+    background: linear-gradient( 190deg, #191a18, #3c3336, #deaad5, #994014, #ce6716 );
+}
+
+.genelkapayici {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+    margin: 20px;
+}
+
+.logo {
+    margin:0;
+    padding:0;
+    margin-right:100px;
+    
+
+}
+
+.formkaplayici {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 350px;
+    background: linear-gradient( 190deg, #191a18, #3c3336, #deaad5, #994014, #ce6716 );
+    margin-top: 70px;
+}
+
+.kayitbutton {
+    margin-top: 35px;
+}
+
+p {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 10px;
+    color: white;
+}
+
+    p a {
+        margin-left: 10px;
+    }
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.Verikapsayici {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.metinKutu {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+    .metinKutu:focus {
+        outline: none;
+        border-color: #000000;
+    }
+
+.girisbutton {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(190deg, #deaad5, #994014, #ce6716);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.kayitbutton {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(190deg, #deaad5, #994014, #ce6716);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.girisbutton:hover {
+    background: transparent;
+}
+
+.top-dog {
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-size: cover;
+    height: 300px;
+    top: -20px;
+    z-index: -1;
+    filter: drop-shadow(10px 1px 10px #000000);
+}
+
+.t_dog {
+    height: 300px;
+    top: 1px;
+    z-index: -9999;
+    filter: drop-shadow(10px 1px 10px #000000);
+}
+
+.panelBasarili {
+    background-color: #6fd100;
+    color: white;
+    padding: 9px;
+    width: 308px;
+    border: 1px solid #6fd100;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-right:15px;
+}
+.panelBasarisiz {
+    background-color: #b70a17;
+    color: white;
+    padding: 9px;
+    width: 308px;
+    border: 1px solid #FE4250;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-right: 15px;
+}
+.girisbutton {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(190deg, #deaad5, #994014, #ce6716);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}

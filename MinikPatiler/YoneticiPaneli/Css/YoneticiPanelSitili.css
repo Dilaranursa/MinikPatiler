@@ -1,0 +1,148 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.ustcubuk {
+    align-items: center;
+    justify-content: center;
+    display: flex; /*elemenın nasıl görüntülencegini belirtir*/
+    height: 200px;
+    background: linear-gradient(135deg, #4a90e2, #904e95); /*CSS'de renk geçişleri(gradients) birden fazla renkler arasında yumuşak geçiş sağlar*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .ustcubuk .baslikpagelod {
+        width: 30px;
+        font-size: 35px;
+        color:white;
+    }
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-top: 1px;
+    margin-left: 190px;
+}
+
+    .logo img {
+        margin-top: 16px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 170px;
+    }
+
+.anaMemuKapsaici {
+    width: 240px;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.anaMenu {
+    width: 200px;
+    color: white;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .anaMenu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+        .anaMenu ul li {
+            margin-bottom: 15px;
+        }
+
+            .anaMenu ul li a {
+                border-radius: 8px;
+                text-align: center;
+                width: 100%;
+                padding: 12px;
+                background-color: #4a90e2;
+                color: #ffffff;
+                text-decoration: none;
+                display: flex;
+                justify-content: center; /*içerigi ortalamak için*/
+                align-items: center; /*elamanları ortalamak için*/
+            }
+
+                .anaMenu ul li a:hover {
+                    background-color: #904e95;
+                }
+
+.content-container {
+    padding: 20px;
+    color: #000000;
+    margin-left: 260px;
+}
+
+
+p {
+    font-size: 18px;
+}
+
+.text-img {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+
+.content-container img {
+    opacity: 0.7;
+    z-index: -1;
+    width: 600px;
+}
+
+.logout {
+    margin-top: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #e24a4a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.solPati {
+    position:absolute;
+    left: 0;
+    display: inline;
+    top: -15px;
+    width: 60px;
+    height: 60px;
+}
+
+.sagPati {
+    right: 0;
+    position: absolute;
+}
+
+.btn:hover {
+    background-color: #d63b3b;
+}

@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="YoneticiMaster.master.cs" Inherits="MinikPatiler.YoneticiPaneli.YoneticiMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Minik Patiler Blog - Yönetici Paneli</title>
+    <link href="Css/YoneticiPanelSitili.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="ustcubuk">
+            <div class="solPati">
+                <img src="Resimler/pati3.png" />
+            </div>
+            <div class="baslikpagelod">
+                <h1>Minik Patiler</h1>
+            </div>
+
+            <div class="logo">
+                <img src="Resimler/profile.png" />
+            </div>
+
+            <div class="sagPati">
+                <img src="Resimler/pati3.png" />
+            </div>
+            <div class="kullaniciAlani">
+                <asp:Label ID="lbl_kullanici" runat="server" CssClass="kullanicieleman">Kullanıcı Adı(Yetki)</asp:Label>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+        <div>
+            <div class="anaMemuKapsaici">
+                <div class="anaMenu">
+                    <ul>
+                        <li><a href="YoneticiDefault.aspx">🏠 Anasayfa</a></li>
+                        <li><a href="YoneticiDefault.aspx">👥 Kullanıcılar</a></li>
+                        <li><a href="YoneticiDefault.aspx">🐾 Hayvanlar</a></li>
+                        <li><a href="KategoriEkle.aspx">📂 Kategori Ekle</a></li>
+                        <li><a href="KategoriListe.aspx">📂 Kategori Listele</a></li>
+                        <li><a href="YoneticiDefault.aspx">✍️ Yazarlar</a></li>
+                        <li><a href="YoneticiDefault.aspx">📝 Testler</a></li>
+                        <li><a href="YoneticiDefault.aspx">📝 Makale Ekle</a></li>
+                        <li><a href="YoneticiDefault.aspx">📄 Makale Listele</a></li>
+                        <li><a href="YoneticiDefault.aspx">💬 Yorumlar</a></li>
+                        <li><a href="YoneticiDefault.aspx">❤️ Beğeni</a></li>
+                        <li><a href="YoneticiDefault.aspx">🚪 Çıkış Yap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="anaIcerik">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

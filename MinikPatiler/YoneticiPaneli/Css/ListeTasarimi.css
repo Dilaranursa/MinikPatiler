@@ -1,0 +1,57 @@
+﻿.sayfaBaslik {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid silver;
+    width:500px;
+    margin-left:300px;
+}
+.tabloTasiyici {
+    
+    margin-left: 300px;
+}
+.tablo {
+    width:800px;
+}
+
+.ikon {
+    display: flex;
+}
+
+
+
+    .tablo tr th {
+        background-color: #e9e9e9;
+        padding: 10px;
+        text-align: left;
+        border: 1px solid silver;
+    }
+
+    .tablo tr td {
+        border: 1px solid silver;
+        padding: 10px;
+    }
+
+.tablo .alternate td {
+    background-color: #efefef;
+}
+
+.tablobutton {
+    padding: 8px 5px;
+    font-size: 10pt;
+    border-radius: 3px;
+    text-decoration: none;
+    display: flex; /*elemenın nasıl görüntülencegini belirtir*/
+    align-items: center; /*elamanları ortalamak için*/
+    justify-content: center; /*içerigi ortalamak için*/
+}
+
+    .tablobutton img {
+        width: 50px;
+        height: 50px;
+    }
+
+.durum img {
+    width: 100px;
+    height: 100px;
+    margin-top: 8px;
+}

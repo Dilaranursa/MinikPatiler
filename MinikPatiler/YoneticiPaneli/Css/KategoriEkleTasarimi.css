@@ -1,0 +1,63 @@
+﻿.tasiyici {
+    width: 900px;
+}
+
+.baslik {
+    background-color: #ededed;
+    padding: 10px;
+    border: 1px solid silver;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.icerik {
+    border: 1px solid silver;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: none;
+    padding: 20px;
+   
+}
+.anaIcerik {
+    margin-left: 260px;
+    margin-top:19px;
+    align-items: center;
+    justify-content: center;
+}
+.satir {
+    padding: 10px 0;
+}
+
+.metinkutu {
+    width: 98%;
+    padding: 7px;
+}
+
+.islembutonu {
+    padding: 10px 30px;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+    .islembutonu:hover {
+        background-color: #904e95;
+        color: white;
+    }
+
+.basarilipanel {
+    padding: 10px;
+    background-color: #028900;
+    color: whitesmoke;
+    border-radius: 7px;
+    border: 1px solid #055f04;
+}
+
+.basarisizpanel {
+    padding: 10px;
+    background-color: #910000;
+    color: #fb5050;
+    border-radius: 7px;
+    border: 1px solid #770404;
+}
