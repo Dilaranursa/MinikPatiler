@@ -39,7 +39,7 @@
                 <div class="anaMenu">
                     <ul>
                         <li><a href="YoneticiDefault.aspx">🏠 Anasayfa</a></li>
-                        <li><a href="YoneticiDefault.aspx">👥 Kullanıcılar</a></li>
+                        <li><a href="Kullanicilar.aspx">👥 Kullanıcılar</a></li>
                         <li><a href="YoneticiDefault.aspx">🐾 Hayvanlar</a></li>
                         <li><a href="KategoriEkle.aspx">📂 Kategori Ekle</a></li>
                         <li><a href="KategoriListe.aspx">📂 Kategori Listele</a></li>

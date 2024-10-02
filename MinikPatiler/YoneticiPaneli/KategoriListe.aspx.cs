@@ -32,6 +32,6 @@ namespace MinikPatiler.YoneticiPaneli
             lv_Kategoriler.DataSource = vm.KategoriListeleme(false);
             lv_Kategoriler.DataBind();
         }
-
+               
     }
 }

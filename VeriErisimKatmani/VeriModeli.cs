@@ -72,30 +72,147 @@ namespace VeriErisimKatmani
 
         #region Üye Giriş
 
-        public Uyeler UyeKayit (string Isim,string Soyisim,string KullaniciAdi,string Eposta,string Sifre)
+        public bool UyeKayit (Uyeler u)
         {
             try
             {
-                komut.CommandText = "INSERT INTO Uyeler(Isim,Soyisim,KullaniciAdi,Eposta,Sifre) VALUES (@isim,@soyisim,@kullaniciadi,@eposta,@sifre)";
+                komut.CommandText = "INSERT INTO Uyeler(Isim,Soyisim,KullaniciAdi,Eposta,Sifre,Silinmis) VALUES (@isim,@soyisim,@kullaniciadi,@eposta,@sifre,@silinmis)";
                 komut.Parameters.Clear();
-                komut.Parameters.AddWithValue("@isim",Isim);
-                komut.Parameters.AddWithValue("@soyisim",Soyisim);
-                komut.Parameters.AddWithValue("@kullaniciadi",KullaniciAdi);
-                komut.Parameters.AddWithValue("@eposta",Eposta);
-                komut.Parameters.AddWithValue("@sifre",Sifre);
+                komut.Parameters.AddWithValue("@isim",u.Isim);
+                komut.Parameters.AddWithValue("@soyisim", u.Soyisim);
+                komut.Parameters.AddWithValue("@kullaniciadi", u.KullaniciAdi);
+                komut.Parameters.AddWithValue("@eposta", u.Eposta);
+                komut.Parameters.AddWithValue("@sifre", u.Sifre);
+                komut.Parameters.AddWithValue("@silinmis", false);
                 baglanti.Open();
                 komut.ExecuteNonQuery();
-                return null;
+                return true;
             }
             catch 
             {
-                return null;
+                return false;
             }
             finally 
             {
                 baglanti.Close();
             }
         }
+
+        #endregion
+
+        #region Kullanıcılar Metotları
+
+        public List<Uyeler> KullaniciListe()
+        {
+            List<Uyeler> listeleme = new List<Uyeler>();
+
+            try
+            {
+                komut.CommandText = "SELECT UyeID, Isim, Soyisim ,Eposta, Silinmis FROM Uyeler ";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader reader = komut.ExecuteReader();
+                while (reader.Read())
+                {
+                    Uyeler kullanici = new Uyeler();
+                    kullanici.UyeID = reader.GetInt32(0);
+                    kullanici.Isim = reader.GetString(1);
+                    kullanici.Soyisim = reader.GetString(2);
+                    kullanici.Eposta = reader.GetString(3);
+                    kullanici.Silinmis = reader.GetBoolean(4);
+                    listeleme.Add(kullanici);
+                }
+                return listeleme;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public List<Uyeler> KullaniciListe(bool silinmis)
+        {
+            List<Uyeler> listeleme = new List<Uyeler>();
+
+            try
+            {
+                komut.CommandText = "SELECT UyeID, Isim, Soyisim ,Eposta, Silinmis FROM Uyeler WHERE Silinmis=@silinmis";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@silinmis", silinmis);
+                baglanti.Open();
+                SqlDataReader reader = komut.ExecuteReader();
+                while (reader.Read())
+                {
+                    Uyeler kullanici = new Uyeler();
+                    kullanici.UyeID = reader.GetInt32(0);
+                    kullanici.Isim = reader.GetString(1);
+                    kullanici.Soyisim = reader.GetString(2);
+                    kullanici.Eposta = reader.GetString(3);
+                    kullanici.Silinmis = reader.GetBoolean(4);
+                    listeleme.Add(kullanici);
+                }
+                return listeleme;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public void KullaniciSilHardDelete(int id)
+        {
+            try
+            {
+                komut.CommandText = "DELETE FROM Uyeler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public Uyeler UyeGetir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT UyeID,Isim,Soyisim,Eposta,Silinmis FROM Uyeler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                Uyeler u = new Uyeler();
+                while (okuyucu.Read())
+                {
+                    u.UyeID = okuyucu.GetInt32(0);
+                    u.Isim = okuyucu.GetString(1);
+                    u.Soyisim = okuyucu.GetString(2);
+                    u.Eposta = okuyucu.GetString(3);
+                    u.Silinmis = okuyucu.GetBoolean(4);
+                }
+                return u;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
 
         #endregion
 
@@ -337,8 +454,6 @@ namespace VeriErisimKatmani
 
 
         #endregion
-
-
 
 
     }

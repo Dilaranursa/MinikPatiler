@@ -14,7 +14,6 @@ namespace VeriErisimKatmani
         public string KullaniciAdi { get; set; }
         public string Eposta { get; set; }
         public string Sifre { get; set; }
-        public bool Durum { get; set; }
         public bool Silinmis { get; set; }
     }
 }

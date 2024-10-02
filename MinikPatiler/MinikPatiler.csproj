@@ -77,6 +77,7 @@
     <Content Include="YoneticiPaneli\KategoriDuzenle.aspx" />
     <Content Include="YoneticiPaneli\KategoriEkle.aspx" />
     <Content Include="YoneticiPaneli\KategoriListe.aspx" />
+    <Content Include="YoneticiPaneli\Kullanicilar.aspx" />
     <Content Include="YoneticiPaneli\Resimler\animal.png" />
     <Content Include="YoneticiPaneli\Resimler\dog1.jpg" />
     <Content Include="YoneticiPaneli\Resimler\dog2.jpg" />
@@ -112,6 +113,13 @@
     </Compile>
     <Compile Include="YoneticiPaneli\KategoriListe.aspx.designer.cs">
       <DependentUpon>KategoriListe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YoneticiPaneli\Kullanicilar.aspx.cs">
+      <DependentUpon>Kullanicilar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YoneticiPaneli\Kullanicilar.aspx.designer.cs">
+      <DependentUpon>Kullanicilar.aspx</DependentUpon>
     </Compile>
     <Compile Include="YoneticiPaneli\UyeKayitol.aspx.cs">
       <DependentUpon>UyeKayitol.aspx</DependentUpon>

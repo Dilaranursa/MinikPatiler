@@ -88,20 +88,34 @@ namespace MinikPatiler.YoneticiPaneli
                 lbl_mesaj.Text = ""; // Önceki mesajı temizle
             }
 
-            // Kullanıcı kaydı denemesi
-            u = vm.UyeKayit(tb_isim.Text, tb_soyisim.Text, tb_kullaniciadi.Text, tb_eposta.Text, tb_sifre.Text);
+            Uyeler uyeler = new Uyeler();
+            uyeler.Isim = tb_isim.Text;
+            uyeler.Soyisim=tb_soyisim.Text;
+            uyeler.KullaniciAdi = tb_kullaniciadi.Text;
+            uyeler.Eposta=tb_eposta.Text;   
+            uyeler.Sifre=tb_sifre.Text;
 
-            // Kayıt başarılı mı?
-            if (u != null)
-            {
-                Session["GirisYapanUyeler"] = u;
-                Response.Redirect("UyeGiris.aspx");
-            }
-            else
+            if (vm.UyeKayit(uyeler))
             {
                 pnl_basarili.Visible = true;
                 lbl_mesaj.Text = "Kayıt işlemi başarılı.";
             }
+            else
+            {
+                pnl_basarili.Visible = false;
+                pnl_basarisiz.Visible = true;
+                lbl_mesaj.Text = "Kayıt işlemi başarızı.";
+
+            }
         }
+
+            // Kayıt başarılı mı?
+            //if (u != null)
+            //{
+            //    Session["GirisYapanUyeler"] = u;
+            //    Response.Redirect("UyeGiris.aspx");
+            //}
+         
+        
     }
 }
