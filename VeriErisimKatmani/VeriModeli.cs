@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 
 namespace VeriErisimKatmani
 {
@@ -25,7 +26,7 @@ namespace VeriErisimKatmani
             {
                 komut.CommandText = "SELECT COUNT(*) FROM Yoneticiler WHERE Eposta  = @eposta  AND Sifre = @sifre";
                 komut.Parameters.Clear();
-                komut.Parameters.AddWithValue("@eposta",eposta);
+                komut.Parameters.AddWithValue("@eposta", eposta);
                 komut.Parameters.AddWithValue("@sifre", sifre);
                 baglanti.Open();
 
@@ -72,13 +73,13 @@ namespace VeriErisimKatmani
 
         #region Üye Giriş
 
-        public bool UyeKayit (Uyeler u)
+        public bool UyeKayit(Uyeler u)
         {
             try
             {
                 komut.CommandText = "INSERT INTO Uyeler(Isim,Soyisim,KullaniciAdi,Eposta,Sifre,Silinmis) VALUES (@isim,@soyisim,@kullaniciadi,@eposta,@sifre,@silinmis)";
                 komut.Parameters.Clear();
-                komut.Parameters.AddWithValue("@isim",u.Isim);
+                komut.Parameters.AddWithValue("@isim", u.Isim);
                 komut.Parameters.AddWithValue("@soyisim", u.Soyisim);
                 komut.Parameters.AddWithValue("@kullaniciadi", u.KullaniciAdi);
                 komut.Parameters.AddWithValue("@eposta", u.Eposta);
@@ -88,11 +89,11 @@ namespace VeriErisimKatmani
                 komut.ExecuteNonQuery();
                 return true;
             }
-            catch 
+            catch
             {
                 return false;
             }
-            finally 
+            finally
             {
                 baglanti.Close();
             }
@@ -218,7 +219,7 @@ namespace VeriErisimKatmani
 
         #region  Kategori Metotlar
 
-        public bool KategoriEkle (Kategori ka)
+        public bool KategoriEkle(Kategori ka)
         {
             try
             {
@@ -445,6 +446,200 @@ namespace VeriErisimKatmani
             catch
             {
                 return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+
+        #endregion
+
+        #region Test Metotları
+
+        public bool SoruEkle(Test sorular)
+        {
+            try
+            {
+                komut.CommandText = "INSERT INTO Test (YoneticiID,Soru,Acevabi,Bcevabi,Ccevabi,Dcevabi,Silinmis) VALUES (@yoneticiıd,@soru,@acevabi,@bcevabi,@ccevabi,@dcevabi,@silinmis)";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@yoneticiıd", sorular.YoneticiID);
+                komut.Parameters.AddWithValue("@soru", sorular.Soru);
+                komut.Parameters.AddWithValue("@acevabi", sorular.Acevabi);
+                komut.Parameters.AddWithValue("@bcevabi", sorular.Bcevabi);
+                komut.Parameters.AddWithValue("@ccevabi", sorular.Ccevabi);
+                komut.Parameters.AddWithValue("@dcevabi", sorular.Dcevabi);
+                komut.Parameters.AddWithValue("@silinmis", false);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public bool YeniSoruEkle(Test sorular)
+        {
+            try
+            {
+                komut.CommandText = "INSERT INTO Test (YoneticiID,Soru,Acevabi,Bcevabi,Ccevabi,Dcevabi,Silinmis) VALUES (@yoneticiıd,@soru,@acevabi,@bcevabi,@ccevabi,@dcevabi,@silinmis)";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@yoneticiıd", sorular.YoneticiID);
+                komut.Parameters.AddWithValue("@soru", sorular.Soru);
+                komut.Parameters.AddWithValue("@acevabi", sorular.Acevabi);
+                komut.Parameters.AddWithValue("@bcevabi", sorular.Bcevabi);
+                komut.Parameters.AddWithValue("@ccevabi", sorular.Ccevabi);
+                komut.Parameters.AddWithValue("@dcevabi", sorular.Dcevabi);
+                komut.Parameters.AddWithValue("@silinmis", false);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public List<Test> TestListeleme()
+        {
+            List<Test> teslist = new List<Test>();
+
+            try
+            {
+                komut.CommandText = "SELECT YoneticiID, Durum, Silinmis FROM Test ";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader reader = komut.ExecuteReader();
+                while (reader.Read())
+                {
+                    Test s = new Test();
+                    s.YoneticiID = reader.GetInt32(0);
+                    s.Durum = reader.GetBoolean(1);
+                    s.Silinmis = reader.GetBoolean(2);
+                    teslist.Add(s);
+                }
+                return teslist;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+          
+        }
+
+        public List<Test> Testlisteleme(bool silinmis, bool durum)
+        {
+            List<Test> tesliste = new List<Test>();
+
+            try
+            {
+                komut.CommandText = "SELECT YoneticiID, Durum, Silinmis FROM Test WHERE Silinmis=@silinmis AND Durum =@durum";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@silinmis", silinmis);
+                komut.Parameters.AddWithValue("@durum", durum);
+                baglanti.Open();
+                SqlDataReader reader = komut.ExecuteReader();
+                while (reader.Read())
+                {
+                    Test so = new Test();
+                    so.YoneticiID = reader.GetInt32(0);
+                    so.Durum = reader.GetBoolean(1);
+                    so.Silinmis = reader.GetBoolean(2);
+                    tesliste.Add(so);
+                }
+                return tesliste;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+
+        }
+
+        public void TestSilHardDelete(int id)
+        {
+            try
+            {
+                komut.CommandText = "DELETE FROM Test WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public void TestDurumDegistir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT Durum FROM Test WHERE ID = @id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                bool durum = Convert.ToBoolean(komut.ExecuteScalar());
+                komut.CommandText = "UPDATE Test SET Durum=@durum WHERE ID = @id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@durum", !durum);
+                komut.Parameters.AddWithValue("@id", id);
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public Test TestGetir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT YoneticiID,Soru,Acevabi,Bcevabi,Ccevabi,Dcevabi,Durum, Silinmis FROM Test WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                Test so = new Test();
+
+                while (okuyucu.Read())
+                {
+                    so.YoneticiID = okuyucu.GetInt32(0);
+                    so.Soru=okuyucu.GetString(1);
+                    so.Acevabi = okuyucu.GetString(2);
+                    so.Bcevabi = okuyucu.GetString(3);
+                    so.Ccevabi = okuyucu.GetString(4);
+                    so.Dcevabi = okuyucu.GetString(5);
+                    so.Durum = okuyucu.GetBoolean(6);
+                    so.Silinmis = okuyucu.GetBoolean(7);
+                }
+                return so;
+            }
+            catch
+            {
+                return null;
             }
             finally
             {

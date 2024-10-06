@@ -71,6 +71,7 @@
     <Content Include="YoneticiPaneli\Css\GirisSitil.css" />
     <Content Include="YoneticiPaneli\Css\KategoriEkleTasarimi.css" />
     <Content Include="YoneticiPaneli\Css\ListeTasarimi.css" />
+    <Content Include="YoneticiPaneli\Css\TestSitil.css" />
     <Content Include="YoneticiPaneli\Css\UyeKayitSitil.css" />
     <Content Include="YoneticiPaneli\Css\YoneticiPanelSitili.css" />
     <Content Include="YoneticiPaneli\GirisPaneli.aspx" />
@@ -121,6 +122,13 @@
     <Compile Include="YoneticiPaneli\Kullanicilar.aspx.designer.cs">
       <DependentUpon>Kullanicilar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="YoneticiPaneli\TestEkleVeListele.aspx.cs">
+      <DependentUpon>TestEkleVeListele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YoneticiPaneli\TestEkleVeListele.aspx.designer.cs">
+      <DependentUpon>TestEkleVeListele.aspx</DependentUpon>
+    </Compile>
     <Compile Include="YoneticiPaneli\UyeKayitol.aspx.cs">
       <DependentUpon>UyeKayitol.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -156,6 +164,7 @@
     <Content Include="YoneticiPaneli\Resimler\pngwing.com.png" />
     <Content Include="YoneticiPaneli\Resimler\profile.png" />
     <Content Include="YoneticiPaneli\Resimler\recycel.png" />
+    <Content Include="YoneticiPaneli\TestEkleVeListele.aspx" />
     <Content Include="YoneticiPaneli\UyeKayitol.aspx" />
     <Content Include="YoneticiPaneli\YoneticiDefault.aspx" />
     <Content Include="YoneticiPaneli\YoneticiMaster.Master" />
