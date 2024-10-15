@@ -3,11 +3,12 @@
 }
 
 .baslik {
-    background-color: #ededed;
+    background-color: #015cd7;
     padding: 10px;
     border: 1px solid silver;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    color:white;
 }
 
 .icerik {
@@ -16,14 +17,15 @@
     border-bottom-right-radius: 10px;
     border-top: none;
     padding: 20px;
-   
 }
+
 .anaIcerik {
     margin-left: 260px;
-    margin-top:19px;
+    margin-top: 19px;
     align-items: center;
     justify-content: center;
 }
+
 .satir {
     padding: 10px 0;
 }

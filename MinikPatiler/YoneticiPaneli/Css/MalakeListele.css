@@ -1,0 +1,72 @@
+﻿.sayfaBaslik {
+    margin-bottom: 20px;
+    
+}
+
+    .sayfaBaslik h3 {
+        font-size: 24px;
+        color: #333;
+        text-align:center;
+    }
+
+/* Tablo tasarımı */
+.tabloTasiyici {
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Kenarlıkların düzgün görünmesi için */
+ 
+}
+
+.tablo {
+    width: 40%;
+    border-collapse: collapse;
+    margin-left: 300px;
+    
+}
+
+    .tablo th, .tablo td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tablo th {
+        background-color: #007bff;
+        color: white;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    .tablo tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .tablo tr:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Simge ve buton tasarımı */
+.ikon {
+    display: flex;
+    justify-content: center; /* Simge hizalaması için merkezi yerleşim */
+    align-items: center; /* Dikey olarak ortalama */
+}
+
+.tablobutton {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+    .tablobutton img {
+        width: 40px; /* İkon genişliği (küçültülmüş) */
+        height: 40px; /* İkon yüksekliği (küçültülmüş) */
+        transition: opacity 0.2s; /* Geçiş efekti ekleme */
+        margin-bottom:52px;
+    }
+
+    .tablobutton:hover img {
+        opacity: 0.7; /* Üzerine gelince opaklık değişimi */
+    }
+
+

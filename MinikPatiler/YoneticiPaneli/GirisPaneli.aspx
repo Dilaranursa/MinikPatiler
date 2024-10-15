@@ -41,12 +41,9 @@
                     </p>
                    <div class="uye"> 
                        <asp:Button ID="uye" runat="server" OnClick="uye_Click1" Text="Kayıt Ol" CssClass="kayitbutton" />
-
                    </div>
                 </div>
-            </div>
-
-
+           </div>
         </div>
     </form>
 </body>

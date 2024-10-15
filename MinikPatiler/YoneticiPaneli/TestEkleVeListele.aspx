@@ -3,49 +3,43 @@
     <link href="Css/TestSitil.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="tasiyici">
-     <div class="baslik">
-         <h4>Kategori Ekle</h4>
-     </div>
-          <div class="icerikkapsasyicisi">
-      <asp:Button ID="btn_testOluştur" runat="server" Text="Test Oluştur" CssClass="btn" OnClick="btn_testOluştur_Click" />
-      <asp:Button ID="btn_testListele" runat="server" Text="Test Listele" CssClass="btn" OnClick="btn_testListele_Click" />
-
-      <!-- Test Oluştur/Düzenle Paneli -->
-      <asp:Panel id="pnl_testolusturr" runat="server" CssClass="panel" Visible="false">
-        <h2 >Test Oluştur</h2>
-        <label for="testTitle">Test Başlığı</label>
-        <asp:TextBox ID="tb_testBaslik" runat="server" CssClass="testbaslik" placeholder="Test başlığı girin"></asp:TextBox><br />
-
-        <div id="sorukapsacicisi">
-          <h3>Sorular</h3>
-        </div>
-        <asp:Button ID="btn_yenisoru" runat="server" Text="Soru Ekle" OnClick="btn_yenisoru_Click" CssClass="btn" />
-
-        <div class="panel">
-          <h3>Resim Yükle</h3>
-          <input type="file" id="image" accept="image/*" onchange="previewImage(event)" />
-          <div id="ongosterim" style="margin-top: 10px"></div>
-        </div>
-
-        <asp:Button ID="btn_kaydet" runat="server" Text="Testi Kaydet" CssClass="btn" OnClick="btn_kaydet_Click"/>
-        <asp:Label ID="lbl_basarili" runat="server" Text="" ForeColor="Green" Visible="false"></asp:Label>
-      </asp:Panel>
-
-      <!-- Test Listeleme Paneli -->
-      <div id="pnl_listele" runat="server" class="panel" style="display: none">
-        <h3>Oluşturulan Testler</h3>
-        <asp:Repeater ID="rpt_test" runat="server">
-          <ItemTemplate>
-            <div class="testverisi">
-              <h4><%# Eval("Title") %></h4>
-              <asp:Button ID="btn_duzenle" runat="server" Text="Düzenle" CommandArgument='<%# Container.ItemIndex %>' OnClick="btn_duzenle_Click" />
-              <asp:Button ID="btn_sil" runat="server" Text="Sil" CommandArgument='<%# Container.ItemIndex %>' OnClick="btn_sil_Click" />
+    
+        <div class="formTasiyici">
+            <div class="formBaslik">
+                <h4>Soru Ekle</h4>
             </div>
-          </ItemTemplate>
-        </asp:Repeater>
-      </div>
-    </div>
-   </div>
-
+            <div class="formIcerik">
+                <asp:Panel ID="pnl_basarili" runat="server" CssClass="basariliPanel" Visible="false">
+                    <strong>Başarılı!</strong> Soru Başarıyla Eklenmiştir.
+                </asp:Panel>
+                <asp:Panel ID="pnl_basarisiz" runat="server" CssClass="basarisizPanel" Visible="false">
+                    <strong>Başarısız!</strong>
+                    <asp:Label ID="lbl_mesaj" runat="server" Text=""></asp:Label>
+                </asp:Panel>
+                <div class="satir">
+                    <label>Soru</label><br />
+                    <asp:TextBox ID="tb_soru" runat="server" CssClass="metinKutu"></asp:TextBox>
+                </div>
+                <div class="satir">
+                    <label>A Şıkkı</label><br />
+                    <asp:TextBox ID="tb_acevabi" runat="server" CssClass="metinKutu"></asp:TextBox>
+                </div>
+                <div class="satir">
+                    <label>B Şıkkı</label><br />
+                    <asp:TextBox ID="tb_bcevabi" runat="server" CssClass="metinKutu"></asp:TextBox>
+                </div>
+                <div class="satir">
+                    <label>C Şıkkı</label><br />
+                    <asp:TextBox ID="tb_cevabi" runat="server" CssClass="metinKutu"></asp:TextBox>
+                </div>
+                <div class="satir">
+                    <label>D Şıkkı</label><br />
+                    <asp:TextBox ID="tb_devabi" runat="server" CssClass="metinKutu"></asp:TextBox>
+                </div>
+                <div class="satir">
+                    <asp:LinkButton ID="lbtn_ekle" runat="server" CssClass="islemButton" OnClick="lbtn_ekle_Click">Soru Ekle</asp:LinkButton>
+                </div>
+            </div>
+        </div>
+        
 </asp:Content>

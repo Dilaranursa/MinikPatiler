@@ -15,84 +15,84 @@ namespace MinikPatiler.YoneticiPaneli
     {
 
         /// <summary>
-        /// btn_testOluştur control.
+        /// pnl_basarili control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_testOluştur;
+        protected global::System.Web.UI.WebControls.Panel pnl_basarili;
 
         /// <summary>
-        /// btn_testListele control.
+        /// pnl_basarisiz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_testListele;
+        protected global::System.Web.UI.WebControls.Panel pnl_basarisiz;
 
         /// <summary>
-        /// pnl_testolusturr control.
+        /// lbl_mesaj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl_testolusturr;
+        protected global::System.Web.UI.WebControls.Label lbl_mesaj;
 
         /// <summary>
-        /// tb_testBaslik control.
+        /// tb_soru control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_testBaslik;
+        protected global::System.Web.UI.WebControls.TextBox tb_soru;
 
         /// <summary>
-        /// btn_yenisoru control.
+        /// tb_acevabi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_yenisoru;
+        protected global::System.Web.UI.WebControls.TextBox tb_acevabi;
 
         /// <summary>
-        /// btn_kaydet control.
+        /// tb_bcevabi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_kaydet;
+        protected global::System.Web.UI.WebControls.TextBox tb_bcevabi;
 
         /// <summary>
-        /// lbl_basarili control.
+        /// tb_cevabi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_basarili;
+        protected global::System.Web.UI.WebControls.TextBox tb_cevabi;
 
         /// <summary>
-        /// pnl_listele control.
+        /// tb_devabi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnl_listele;
+        protected global::System.Web.UI.WebControls.TextBox tb_devabi;
 
         /// <summary>
-        /// rpt_test control.
+        /// lbtn_ekle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpt_test;
+        protected global::System.Web.UI.WebControls.LinkButton lbtn_ekle;
     }
 }

@@ -42,10 +42,9 @@
                         <li><a href="Kullanicilar.aspx">👥 Kullanıcılar</a></li>
                         <li><a href="KategoriEkle.aspx">📂 Kategori Ekle</a></li>
                         <li><a href="KategoriListe.aspx">📂 Kategori Listele</a></li>
-                        <li><a href="YoneticiDefault.aspx">✍️ Yazarlar</a></li>
                         <li><a href="TestEkleVeListele.aspx">📝 Testler</a></li>
-                        <li><a href="YoneticiDefault.aspx">📝 Makale Ekle</a></li>
-                        <li><a href="YoneticiDefault.aspx">📄 Makale Listele</a></li>
+                        <li><a href="MakaleEkle.aspx">📝 Makale Ekle</a></li>
+                        <li><a href="MakaleListele.aspx">📄 Makale Listele</a></li>
                         <li><a href="YoneticiDefault.aspx">💬 Yorumlar</a></li>
                         <li><a href="YoneticiDefault.aspx">❤️ Beğeni</a></li>
                         <li><a href="YoneticiDefault.aspx">🚪 Çıkış Yap</a></li>

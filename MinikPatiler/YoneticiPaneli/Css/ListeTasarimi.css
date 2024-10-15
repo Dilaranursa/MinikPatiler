@@ -20,10 +20,11 @@
 
 
     .tablo tr th {
-        background-color: #e9e9e9;
         padding: 10px;
         text-align: left;
         border: 1px solid silver;
+        background-color:blue;
+        color:azure;
     }
 
     .tablo tr td {
