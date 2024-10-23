@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace MinikPatiler
 {
-    public partial class AnaEkranGountusu : System.Web.UI.Page
+    public partial class Hakkımızda : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

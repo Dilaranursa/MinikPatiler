@@ -13,5 +13,15 @@ namespace MinikPatiler.YoneticiPaneli
         {
 
         }
+
+        protected void btn_onayla_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_reddet_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -99,6 +99,52 @@ namespace VeriErisimKatmani
             }
         }
 
+        public Uyeler UyeGiris(string eposta, string sifre)
+        {
+            try
+            {
+                komut.CommandText = "SELECT COUNT(*) FROM Yoneticiler WHERE Eposta  = @eposta  AND Sifre = @sifre";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@eposta", eposta);
+                komut.Parameters.AddWithValue("@sifre", sifre);
+                baglanti.Open();
+
+                int sayi = Convert.ToInt32(komut.ExecuteScalar());
+                if (sayi == 1)
+                {
+                    komut.CommandText = "SELECT * FROM Uyeler WHERE Mail = @e AND Sifre = @s";
+                    komut.Parameters.Clear();
+                    komut.Parameters.AddWithValue("@eposta", eposta);
+                    komut.Parameters.AddWithValue("@sifre", sifre);
+                    SqlDataReader okuyucu = komut.ExecuteReader();
+                    Uyeler u = new Uyeler();
+                    while (okuyucu.Read())
+                    {
+                        u.UyeID = okuyucu.GetInt32(0);
+                        u.Isim = okuyucu.GetString(1);
+                        u.Soyisim = okuyucu.GetString(2);
+                        u.KullaniciAdi = okuyucu.GetString(3);
+                        u.Eposta = okuyucu.GetString(4);
+                        u.Sifre = okuyucu.GetString(5);
+                        u.Silinmis = okuyucu.GetBoolean(6);
+                    }
+                    return u;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
         #endregion
 
         #region Kullanıcılar Metotları
@@ -847,6 +893,196 @@ namespace VeriErisimKatmani
                     test.Cevap = okuyucu.GetString(7);
                 }
                 return test;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+
+        #endregion
+
+        #region Yorum Metotları
+
+        public bool YorumEkle(Yorum yorum)
+        {
+            try
+            {
+                komut.CommandText = "INSERT INTO Yorumlar (MakaleID, UyeID, Icerik, EklemeTarihi, Durum) VALUES (@makaleID, @uyeID, @icerik, @eklemetarihi, @durum)";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@makaleID", yorum.MakaleID);
+                komut.Parameters.AddWithValue("@uyeID", yorum.UyeID);
+                komut.Parameters.AddWithValue("@icerik", yorum.Icerik);
+                komut.Parameters.AddWithValue("@eklemetarihi", yorum.EklemeTarihi);
+                komut.Parameters.AddWithValue("@durum", yorum.Durum);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+        public List<Yorum> TumYorumlariGetir()
+        {
+            List<Yorum> yorumlar = new List<Yorum>();
+
+            try
+            {
+                komut.CommandText = "SELECT ID, MakaleID, UyeID, Icerik, EklemeTarihi, Durum FROM Yorumlar";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Yorum yorum = new Yorum();
+                    yorum.ID = okuyucu.GetInt32(0);
+                    yorum.MakaleID = okuyucu.GetInt32(1);
+                    yorum.UyeID = okuyucu.GetInt32(2);
+                    yorum.Icerik = okuyucu.GetString(3);
+                    yorum.EklemeTarihi = okuyucu.GetDateTime(4);
+                    yorum.Durum = okuyucu.GetBoolean(5);
+                    yorumlar.Add(yorum);
+                }
+                return yorumlar;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+        public void YorumSil(int id)
+        {
+            try
+            {
+                komut.CommandText = "DELETE FROM Yorumlar WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+        public void YorumDurumDegistir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT Durum FROM Yorumlar WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                bool durum = Convert.ToBoolean(komut.ExecuteScalar());
+
+                komut.CommandText = "UPDATE Yorumlar SET Durum=@durum WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                komut.Parameters.AddWithValue("@durum", !durum);
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+        public bool YorumDuzenle(Yorum yorum)
+        {
+            try
+            {
+                komut.CommandText = "UPDATE Yorumlar SET MakaleID=@makaleID, UyeID=@uyeID, Icerik=@icerik, Eklemetarihi=@eklemetarihi, Durum=@durum WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", yorum.ID);
+                komut.Parameters.AddWithValue("@makaleID", yorum.MakaleID);
+                komut.Parameters.AddWithValue("@uyeID", yorum.UyeID);
+                komut.Parameters.AddWithValue("@icerik", yorum.Icerik);
+                komut.Parameters.AddWithValue("@eklemetarihi", yorum.EklemeTarihi);
+                komut.Parameters.AddWithValue("@durum", yorum.Durum);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+        public List<Yorum> YorumlariGetir(int makaleID)
+        {
+            List<Yorum> yorumlar = new List<Yorum>();
+            try
+            {
+                komut.CommandText = "SELECT y.ID, y.MakaleID, y.UyeID, y.Icerik, y.Eklemetarihi, y.Durum, u.Isim, u.Soyisim FROM Yorumlar y INNER JOIN Uyeler u ON y.UyeID = u.ID WHERE y.MakaleID = @makaleID";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@makaleID", makaleID);
+
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Yorum yorum = new Yorum();
+                    yorum.ID = okuyucu.GetInt32(0);
+                    yorum.MakaleID = okuyucu.GetInt32(1);
+                    yorum.UyeID = okuyucu.GetInt32(2);
+                    yorum.Icerik = okuyucu.GetString(3);
+                    yorum.EklemeTarihi = okuyucu.GetDateTime(4);
+                    yorum.Durum = okuyucu.GetBoolean(5);
+                    yorum.UyeIsim = okuyucu.GetString(6) + " " + okuyucu.GetString(7);
+                    yorumlar.Add(yorum);
+                }
+                return yorumlar;
+            }
+            catch
+            {
+                return yorumlar;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+        public List<Yorum> UyeninYorumlariniGetir(int uyeID)
+        {
+            List<Yorum> uyeninYorumlari = new List<Yorum>();
+
+            try
+            {
+                komut.CommandText = "SELECT ID, MakaleID, UyeID, Icerik, Eklemetarihi, Durum FROM Yorumlar WHERE UyeID = @UyeID";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@UyeID", uyeID);
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Yorum yorum = new Yorum();
+                    yorum.ID = okuyucu.GetInt32(0);
+                    yorum.MakaleID = okuyucu.GetInt32(1);
+                    yorum.UyeID = okuyucu.GetInt32(2);
+                    yorum.Icerik = okuyucu.GetString(3);
+                    yorum.EklemeTarihi = okuyucu.GetDateTime(4);
+                    yorum.Durum = okuyucu.GetBoolean(5);
+                    uyeninYorumlari.Add(yorum);
+                }
+                return uyeninYorumlari;
             }
             catch
             {

@@ -31,6 +31,7 @@
             </div>
             <div class="kullaniciAlani">
                 <asp:Label ID="lbl_kullanici" runat="server" CssClass="kullanicieleman">Kullanıcı Adı(Yetki)</asp:Label>
+               
             </div>
             <div style="clear: both"></div>
         </div>
@@ -45,9 +46,9 @@
                         <li><a href="TestEkleVeListele.aspx">📝 Testler</a></li>
                         <li><a href="MakaleEkle.aspx">📝 Makale Ekle</a></li>
                         <li><a href="MakaleListele.aspx">📄 Makale Listele</a></li>
-                        <li><a href="YoneticiDefault.aspx">💬 Yorumlar</a></li>
+                        <li><a href="Yorumlar.aspx">💬 Yorumlar</a></li>
                         <li><a href="YoneticiDefault.aspx">❤️ Beğeni</a></li>
-                        <li><a href="YoneticiDefault.aspx">🚪 Çıkış Yap</a></li>
+                       <asp:LinkButton ID="lbt_cikis" runat="server" CssClass="cıkıs" OnClick="lbt_cikis_Click">🚪 Çıkış Yap</asp:LinkButton>
                     </ul>
                 </div>
             </div>

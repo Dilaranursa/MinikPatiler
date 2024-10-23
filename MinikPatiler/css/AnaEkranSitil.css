@@ -1,0 +1,49 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-image: url('../resimlerr/animal.png');
+    background-size: cover;
+    background-position: center;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+    .navbar ul li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border-radius: 50px;
+        transition: background-color 0.3s ease;
+    }
+
+        .navbar ul li a:hover {
+            background-color: #e27d7d;
+            color: #000000;
+        }

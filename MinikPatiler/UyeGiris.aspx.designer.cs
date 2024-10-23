@@ -7,56 +7,65 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MinikPatiler.YoneticiPaneli
+namespace MinikPatiler
 {
 
 
-    public partial class YoneticiMaster
+    public partial class UyeGiris
     {
 
         /// <summary>
-        /// head control.
+        /// pnl_basarisiz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Panel pnl_basarisiz;
 
         /// <summary>
-        /// form1 control.
+        /// lbl_mesaj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lbl_mesaj;
 
         /// <summary>
-        /// lbl_kullanici control.
+        /// tb_mail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_kullanici;
+        protected global::System.Web.UI.WebControls.TextBox tb_mail;
 
         /// <summary>
-        /// lbt_cikis control.
+        /// tb_sifre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbt_cikis;
+        protected global::System.Web.UI.WebControls.TextBox tb_sifre;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// btn_girisYapın control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button btn_girisYapın;
+
+        /// <summary>
+        /// uye control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uye;
     }
 }

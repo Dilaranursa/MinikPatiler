@@ -17,7 +17,7 @@
     .ustcubuk .baslikpagelod {
         width: 30px;
         font-size: 35px;
-        color:white;
+        color: white;
     }
 
 .logo {
@@ -69,6 +69,7 @@
             margin-bottom: 15px;
         }
 
+
             .anaMenu ul li a {
                 border-radius: 8px;
                 text-align: center;
@@ -85,6 +86,23 @@
                 .anaMenu ul li a:hover {
                     background-color: #904e95;
                 }
+
+.cıkıs {
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center; /*içerigi ortalamak için*/
+    align-items: center; /*elamanları ortalamak için*/
+}
+
+    .cıkıs :hover {
+        background-color: #904e95;
+    }
 
 .content-container {
     padding: 20px;
@@ -130,7 +148,7 @@ p {
 }
 
 .solPati {
-    position:absolute;
+    position: absolute;
     left: 0;
     display: inline;
     top: -15px;
@@ -145,4 +163,44 @@ p {
 
 .btn:hover {
     background-color: #d63b3b;
+}
+
+table {
+    z-index: 999999;
+    position: absolute;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.approve-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.reject-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
 }

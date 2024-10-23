@@ -24,6 +24,10 @@ namespace MinikPatiler.YoneticiPaneli
             }
         }
 
-       
+        protected void lbt_cikis_Click(object sender, EventArgs e)
+        {
+            Session["GirisYapanYonetici"] = null;
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }
