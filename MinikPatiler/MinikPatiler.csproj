@@ -69,9 +69,12 @@
   <ItemGroup>
     <Content Include="css\AnaEkranSitil.css" />
     <Content Include="css\HakKismi.css" />
+    <Content Include="css\HomeTasarım.css" />
+    <Content Include="css\MakaleGosterme.css" />
     <Content Include="css\uyegirissitil.css" />
     <Content Include="Default.aspx" />
     <Content Include="Hakkımızda.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="MakaleGosterme.aspx" />
     <Content Include="Resimlerr\animal.png" />
     <Content Include="Resimlerr\MakaleResimleri\animal.png" />
@@ -412,6 +415,7 @@
     <Content Include="YoneticiPaneli\Resimler\edit.png" />
     <Content Include="YoneticiPaneli\Resimler\logo.png" />
     <Content Include="YoneticiPaneli\Yorumlar.aspx" />
+    <Content Include="Yorumlary.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnaEkran.Master.cs">
@@ -434,6 +438,13 @@
     </Compile>
     <Compile Include="Hakkımızda.aspx.designer.cs">
       <DependentUpon>Hakkımızda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="MakaleGosterme.aspx.cs">
       <DependentUpon>MakaleGosterme.aspx</DependentUpon>
@@ -540,6 +551,13 @@
     </Compile>
     <Compile Include="YoneticiPaneli\Yorumlar.aspx.designer.cs">
       <DependentUpon>Yorumlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yorumlary.aspx.cs">
+      <DependentUpon>Yorumlary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yorumlary.aspx.designer.cs">
+      <DependentUpon>Yorumlary.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

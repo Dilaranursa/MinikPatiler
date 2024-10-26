@@ -103,40 +103,35 @@ namespace VeriErisimKatmani
         {
             try
             {
-                komut.CommandText = "SELECT COUNT(*) FROM Yoneticiler WHERE Eposta  = @eposta  AND Sifre = @sifre";
+                komut.CommandText = "SELECT UyeID, Isim, Soyisim, KullaniciAdi, Eposta, Sifre, Silinmis FROM Uyeler WHERE Eposta = @eposta AND Sifre = @sifre AND Silinmis = 0";
                 komut.Parameters.Clear();
                 komut.Parameters.AddWithValue("@eposta", eposta);
-                komut.Parameters.AddWithValue("@sifre", sifre);
-                baglanti.Open();
+                komut.Parameters.AddWithValue("@sifre", sifre); // Şifreyi hash ile kontrol etmeyi unutmayın
 
-                int sayi = Convert.ToInt32(komut.ExecuteScalar());
-                if (sayi == 1)
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+
+                if (okuyucu.Read())
                 {
-                    komut.CommandText = "SELECT * FROM Uyeler WHERE Mail = @e AND Sifre = @s";
-                    komut.Parameters.Clear();
-                    komut.Parameters.AddWithValue("@eposta", eposta);
-                    komut.Parameters.AddWithValue("@sifre", sifre);
-                    SqlDataReader okuyucu = komut.ExecuteReader();
-                    Uyeler u = new Uyeler();
-                    while (okuyucu.Read())
+                    // Kullanıcı bulundu
+                    Uyeler u = new Uyeler
                     {
-                        u.UyeID = okuyucu.GetInt32(0);
-                        u.Isim = okuyucu.GetString(1);
-                        u.Soyisim = okuyucu.GetString(2);
-                        u.KullaniciAdi = okuyucu.GetString(3);
-                        u.Eposta = okuyucu.GetString(4);
-                        u.Sifre = okuyucu.GetString(5);
-                        u.Silinmis = okuyucu.GetBoolean(6);
-                    }
+                        UyeID = okuyucu.GetInt32(0),
+                        Isim = okuyucu.GetString(1),
+                        Soyisim = okuyucu.GetString(2),
+                        KullaniciAdi = okuyucu.GetString(3),
+                        Eposta = okuyucu.GetString(4),
+                        Sifre = okuyucu.GetString(5), // Şifreyi burada döndürmeyin, sadece doğrulama yapın
+                        Silinmis = okuyucu.GetBoolean(6)
+                    };
+
                     return u;
                 }
-                else
-                {
-                    return null;
-                }
+
+                return null; // Kullanıcı bulunamadı
             }
             catch
-            {
+            {    
                 return null;
             }
             finally
@@ -144,12 +139,12 @@ namespace VeriErisimKatmani
                 baglanti.Close();
             }
         }
+    
+    #endregion
 
-        #endregion
+    #region Kullanıcılar Metotları
 
-        #region Kullanıcılar Metotları
-
-        public List<Uyeler> KullaniciListe()
+    public List<Uyeler> KullaniciListe()
         {
             List<Uyeler> listeleme = new List<Uyeler>();
 
@@ -616,7 +611,7 @@ namespace VeriErisimKatmani
         {
             try
             {
-                komut.CommandText = "SELECT M.ID, M.KategoriID, K.Isim, M.YazarID, Y.KullaniciAdi, M.Ozet, M.Icerik, M.Baslik, M.EklemeTarihi, M.GoruntulemeSayisi, M.KapakResim, M.Durum FROM Makaleler AS M JOIN Kategoriler AS K ON M.KategoriID = K.ID JOIN Yoneticiler AS Y ON M.YazarID = Y.ID WHERE M.ID = @id";
+                komut.CommandText = "SELECT M.ID, M.KategoriID, K.Isim, M.YazarID, Y.KullaniciAdi, M.Icerik, M.Baslik, M.EklemeTarihi, M.GoruntulemeSayisi, M.KapakResim, M.Durum FROM Makaleler AS M JOIN Kategoriler AS K ON M.KategoriID = K.ID JOIN Yoneticiler AS Y ON M.YazarID = Y.ID WHERE M.ID = @id";
                 komut.Parameters.Clear();
                 komut.Parameters.AddWithValue("@id", id);
                 baglanti.Open();
@@ -630,13 +625,12 @@ namespace VeriErisimKatmani
                     mak.Kategori = okuyucu.GetString(2);
                     mak.YazarID = okuyucu.GetInt32(3);
                     mak.Yazar = okuyucu.GetString(4);
-                    mak.Ozet = okuyucu.GetString(5);
-                    mak.Icerik = okuyucu.GetString(6);
-                    mak.Baslik = okuyucu.GetString(7);
-                    mak.EklemeTarihi = okuyucu.GetDateTime(8);
-                    mak.GoruntulemeSayisi = okuyucu.GetInt64(9);
-                    mak.KapakResim = okuyucu.GetString(10);
-                    mak.Durum = okuyucu.GetBoolean(11);
+                    mak.Icerik = okuyucu.GetString(5);
+                    mak.Baslik = okuyucu.GetString(6);
+                    mak.EklemeTarihi = okuyucu.GetDateTime(7);
+                    mak.GoruntulemeSayisi = okuyucu.GetInt64(8);
+                    mak.KapakResim = okuyucu.GetString(9);
+                    mak.Durum = okuyucu.GetBoolean(10);
                 }
                 return mak;
             }
@@ -738,6 +732,8 @@ namespace VeriErisimKatmani
                 baglanti.Close();
             }
         }
+        
+        
 
         #endregion
 
@@ -920,6 +916,7 @@ namespace VeriErisimKatmani
                 komut.Parameters.AddWithValue("@icerik", yorum.Icerik);
                 komut.Parameters.AddWithValue("@eklemetarihi", yorum.EklemeTarihi);
                 komut.Parameters.AddWithValue("@durum", yorum.Durum);
+                
                 baglanti.Open();
                 komut.ExecuteNonQuery();
                 return true;

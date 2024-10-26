@@ -47,3 +47,46 @@ header {
             background-color: #e27d7d;
             color: #000000;
         }
+
+.makale-kapsayici {
+    display: flex;
+    flex-wrap: wrap; /* İçeriklerin altına geçebilmesi için */
+    align-items: flex-start; /* Üstten hizalamak için */
+    justify-content: space-between; /* Yan yana içerikler arasında boşluk bırakır */
+    text-align: center;
+    margin-top: 25px;
+    
+}
+
+.makale {
+    border: 1px solid #808080;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex: 0 0 48%; /* Her bir makale %48 genişliğinde olacak */
+    margin-bottom: 20px; /* Altındaki içerikler için boşluk */
+}
+
+.devami {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    width: 320px;
+    margin-right: auto;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+    .devami a {
+        color: rgb(0, 0, 0);
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+
+    .devami:hover {
+        background-color: #e27d7d;
+        color: #000000;
+    }

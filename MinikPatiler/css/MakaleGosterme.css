@@ -1,0 +1,16 @@
+﻿.makale {
+    border: 1px solid #808080;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex: 0 0 48%; /* Her bir makale %48 genişliğinde olacak */
+    margin-bottom: 20px; /* Altındaki içerikler için boşluk */
+}
+.makale-kapsayici {
+    display: flex;
+    flex-wrap: wrap; /* İçeriklerin altına geçebilmesi için */
+    align-items: flex-start; /* Üstten hizalamak için */
+    justify-content: space-between; /* Yan yana içerikler arasında boşluk bırakır */
+    text-align: center;
+    margin-top: 25px;
+    
+}

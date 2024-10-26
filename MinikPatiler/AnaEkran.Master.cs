@@ -13,13 +13,7 @@ namespace MinikPatiler
         {
 
         }
-
-
-
-        protected void btnadminlogin_Click(object sender, EventArgs e)
-        {
-
-        }
+              
         protected void btn_admin_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/YoneticiPaneli/GirisPaneli.aspx");

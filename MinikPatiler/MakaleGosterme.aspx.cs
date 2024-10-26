@@ -13,93 +13,32 @@ namespace MinikPatiler
         VeriModeli vm =new VeriModeli();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString.Count != 0)
-            {
-                int id = Convert.ToInt32(Request.QueryString["MakaleID"]);
-                Makale m = vm.MakaleGetir(id);
-                ltrl_baslik.Text = m.Baslik;
-                ltrl_Icerik.Text = m.Icerik;
-                ltrl_kategori.Text = m.Kategori;
-                ltrl_Yazar.Text = m.Yazar;
-                img_resim.ImageUrl = "Resimler/MakaleResimleri/" + m.KapakResim;
-
-                rp_yorumlar.DataSource = vm.YorumlariGetir(id);
-                rp_yorumlar.DataBind();
-
-                if (Session["uye"] != null)
-                {
-                    pnl_girisvar.Visible = true;
-                    pnl_girisYok.Visible = false;
-                }
-                else
-                {
-                    pnl_girisvar.Visible = false;
-                    pnl_girisYok.Visible = true;
-                }
-
-            }
-            else
+            if (Request.QueryString.Count == 0)
             {
                 Response.Redirect("Default.aspx");
             }
+            else
+            {
+                int id = Convert.ToInt32(Request.QueryString["makale"]);
+                vm.MakaleGoruntulemeArttir(id);
+                Makale m = vm.MakaleGetir(id);
+                ltrl_baslik.Text = m.Baslik;
+                ltrl_icerik.Text = m.Icerik;
+                ltrl_kategori.Text = m.Kategori;
+                ltrl_yayinlama.Text = Convert.ToString(m.EklemeTarihi);
+                ltrl_yazar.Text = m.Yazar;
+                ltrl_goruntuleme.Text = Convert.ToString(m.GoruntulemeSayisi);
+                img_resim.ImageUrl = "Resimler/MakaleResimleri/" + m.KapakResim;
+            }
 
         }
 
-        protected void lbtn_ekle_Click(object sender, EventArgs e)
+        protected void buton_Click(object sender, EventArgs e)
         {
-
-            if (Session["uye"] != null)
-            {
-                try
-                {
-                    int makaleID = Convert.ToInt32(Request.QueryString["MakaleID"]);
-                    Uyeler u = Session["uye"] as Uyeler;
-                    if (u != null)
-                    {
-                        int uyeID = u.UyeID;
-                        string icerik = tb_yorum.Text;
-
-                        Yorum yeniYorum = new Yorum();
-                        yeniYorum.MakaleID = makaleID;
-                        yeniYorum.UyeID = uyeID;
-                        yeniYorum.Icerik = icerik;
-                        yeniYorum.EklemeTarihi = DateTime.Now;
-                        yeniYorum.Durum = true;
-
-                        string uyeIsim = u.Isim + " " + u.Soyisim;
-                        yeniYorum.UyeIsim = uyeIsim;
-
-                        VeriModeli db = new VeriModeli();
-                        bool eklemeBasarili = db.YorumEkle(yeniYorum);
-
-                        if (eklemeBasarili)
-                        {
-                            Response.Redirect(Request.RawUrl);
-                        }
-                        else
-                        {
-                            pnl_basarisiz.Visible = true;
-                            lbl_hatamesaj.Text = "Yorum eklenirken bir hata oluştu. Lütfen tekrar deneyin.";
-                        }
-                    }
-                    else
-                    {
-                        pnl_basarisiz.Visible = true;
-                        lbl_hatamesaj.Text = "Kullanıcı bilgileri alınamadı.";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    pnl_basarisiz.Visible = true;
-                    lbl_hatamesaj.Text = "Bir hata oluştu: " + ex.Message;
-                }
-            }
-            else
-            {
-                pnl_basarisiz.Visible = true;
-                lbl_hatamesaj.Text = "Yorum yapabilmek için giriş yapmalısınız.";
-            }
-
+            Response.Redirect("~/Yorumlary.aspx");
         }
     }
 }
+
+
+    

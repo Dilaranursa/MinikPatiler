@@ -15,6 +15,15 @@ namespace MinikPatiler
     {
 
         /// <summary>
+        /// ltrl_baslik control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrl_baslik;
+
+        /// <summary>
         /// img_resim control.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,13 @@ namespace MinikPatiler
         protected global::System.Web.UI.WebControls.Image img_resim;
 
         /// <summary>
-        /// ltrl_baslik control.
+        /// ltrl_yazar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrl_baslik;
+        protected global::System.Web.UI.WebControls.Literal ltrl_yazar;
 
         /// <summary>
         /// ltrl_kategori control.
@@ -42,93 +51,39 @@ namespace MinikPatiler
         protected global::System.Web.UI.WebControls.Literal ltrl_kategori;
 
         /// <summary>
-        /// ltrl_Yazar control.
+        /// ltrl_yayinlama control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrl_Yazar;
+        protected global::System.Web.UI.WebControls.Literal ltrl_yayinlama;
 
         /// <summary>
-        /// ltrl_Tarih control.
+        /// ltrl_goruntuleme control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrl_Tarih;
+        protected global::System.Web.UI.WebControls.Literal ltrl_goruntuleme;
 
         /// <summary>
-        /// ltrl_Icerik control.
+        /// buton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrl_Icerik;
+        protected global::System.Web.UI.WebControls.Button buton;
 
         /// <summary>
-        /// rp_yorumlar control.
+        /// ltrl_icerik control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rp_yorumlar;
-
-        /// <summary>
-        /// pnl_girisvar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl_girisvar;
-
-        /// <summary>
-        /// tb_yorum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_yorum;
-
-        /// <summary>
-        /// pnl_basarisiz control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl_basarisiz;
-
-        /// <summary>
-        /// lbl_hatamesaj control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_hatamesaj;
-
-        /// <summary>
-        /// lbtn_ekle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtn_ekle;
-
-        /// <summary>
-        /// pnl_girisYok control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl_girisYok;
+        protected global::System.Web.UI.WebControls.Literal ltrl_icerik;
     }
 }

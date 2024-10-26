@@ -13,38 +13,25 @@ namespace MinikPatiler
         VeriModeli vm = new VeriModeli();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            if (!IsPostBack) // Sayfa yenilenmediyse
             {
                 if (Request.QueryString.Count == 0)
                 {
-                    List<Makale> makaleler = vm.MakaleListele();
-                    makaleler.Reverse();
-                    lv_makaleler1.DataSource = makaleler;
+                    lv_makaleler1.DataSource = vm.MakaleListele();
                     lv_makaleler1.DataBind();
-
                 }
                 else
                 {
-                    int katid = Convert.ToInt32(Request.QueryString["kategoriID"]);
-                    List<Makale> makaleler = vm.MakaleListele(katid);
-                    makaleler.Reverse();
-                    lv_makaleler1.DataSource = makaleler;
+                    int makaleID = Convert.ToInt32(Request.QueryString["makale"]);
+                    // Görüntüleme sayısını artır
+                    vm.MakaleGoruntulemeArttir(makaleID);
+                    // Makaleyi getir
+                    lv_makaleler1.DataSource = vm.MakaleListele(makaleID);
                     lv_makaleler1.DataBind();
-
                 }
             }
-            if (Request.QueryString.Count == 0)
-            {
-                lv_makaleler1.DataSource = vm.MakaleListele();
-                lv_makaleler1.DataBind();
-            }
-            else
-            {
-                int kid = Convert.ToInt32(Request.QueryString["kid"]);
-                lv_makaleler1.DataSource = vm.MakaleListele(kid);
-                lv_makaleler1.DataBind();
-            }
         }
-
+      
     }
 }

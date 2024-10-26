@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Minik Patiler</title>
     <link href="css/AnaEkranSitil.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -19,25 +19,29 @@
                     <h1>Minik Patiler</h1>
                     <nav>
                         <ul>
-                            <li><a href="Default.aspx">Ana Sayfa</a></li>
+                            <li><a href="Home.aspx">Ana Sayfa</a></li>
                             <li><a href="MakaleGosterme.aspx">Makaleler</a></li>
                             <li><a href="Hakkımızda.aspx">Hakkımızda</a></li>
                             <li><a href="UyeGiris.aspx">Üye Girişi</a></li>
-                            <li><asp:LinkButton ID="btn_admin" runat="server" OnClick="btn_admin_Click">Yonetici Girişi</asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton ID="btn_admin" runat="server" OnClick="btn_admin_Click">Yonetici Girişi</asp:LinkButton></li>
                         </ul>
                     </nav>
                 </div>
             </header>
 
-            <section class="hero">
-                <div class="animals">
-                    <!-- Hayvanlar ile ilgili içerik buraya eklenecek -->
-                </div>
-            </section>
 
-          
-            <div>
+
+            <div class="makale-kapsayici">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="yorum-kapsayıcı">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="home-kapsayıcı">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
 
