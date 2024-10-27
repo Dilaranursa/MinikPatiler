@@ -8,7 +8,7 @@
         <h2 style="margin: 10px 0;">
             <asp:Literal ID="ltrl_baslik" runat="server"></asp:Literal>
         </h2>
-        <asp:Image ID="img_resim" runat="server" Style="width:250px; height:250px;" />
+        <asp:Image ID="img_resim" runat="server" Style="width: 250px; height: 250px;" />
         <div class="ayrac"></div>
         <div class="altbilgi">
             Yazar :<asp:Literal ID="ltrl_yazar" runat="server"></asp:Literal>| 
@@ -17,7 +17,7 @@
             Görüntüleme Sayısı :<asp:Literal ID="ltrl_goruntuleme" runat="server"></asp:Literal>
         </div>
         <div class="ayrac"></div>
-        <div style="margin: 10px 0; text-align:justify">
+        <div style="margin: 10px 0; text-align: justify">
             <asp:Literal ID="ltrl_icerik" runat="server"></asp:Literal>
         </div>
     </div>
@@ -32,16 +32,26 @@
             </asp:TextBox><br />
             <asp:LinkButton ID="lbtn_yorumGonder" runat="server" Text="Yorum Gönder" CssClass="gonderButon" OnClick="lbtn_yorumGonder_Click">
 
-            </asp:LinkButton> 
-            <div style="clear:both"></div>
+            </asp:LinkButton>
+            <div style="clear: both"></div>
             <asp:Panel ID="pnl_bilgi" runat="server" Visible="false" CssClass="bilgiPaneli">
                 <asp:Label ID="lbl_bilgiMesaji" runat="server" Text="text"></asp:Label>
             </asp:Panel>
-        </div>
-
-
-
+            <div class="yorumlar">
+        <h2>Yorumlar</h2>
+        <asp:Repeater ID="rpt_yorumlar" runat="server">
+            <ItemTemplate>
+                <div class="yorum">
+                    <strong><%# Eval("UyeIsim") %></strong>
+                    <p><%# Eval("Icerik") %></p>
+                    <span><%# Eval("EklemeTarihi", "{0:dd.MM.yyyy}") %></span>
+                    <hr />
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+        
+        <asp:Label ID="Label1" runat="server" CssClass="bilgiMesaji" />
     </div>
-
-      
-</asp:Content>
+        </div>
+    </div>
+    </asp:Content>

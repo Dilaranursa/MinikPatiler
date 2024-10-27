@@ -1026,36 +1026,43 @@ namespace VeriErisimKatmani
         public List<Yorum> YorumlariGetir(int makaleID)
         {
             List<Yorum> yorumlar = new List<Yorum>();
+
             try
             {
-                komut.CommandText = "SELECT y.ID, y.MakaleID, y.UyeID, y.Icerik, y.Eklemetarihi, y.Durum, u.Isim, u.Soyisim FROM Yorumlar y INNER JOIN Uyeler u ON y.UyeID = u.ID WHERE y.MakaleID = @makaleID";
+                komut.CommandText = "SELECT ID, MakaleID, UyeID, Icerik, Eklemetarihi, Durum " +
+                                    "FROM Yorumlar " +
+                                    "WHERE MakaleID = @makaleID";
                 komut.Parameters.Clear();
                 komut.Parameters.AddWithValue("@makaleID", makaleID);
 
                 baglanti.Open();
                 SqlDataReader okuyucu = komut.ExecuteReader();
+
                 while (okuyucu.Read())
                 {
-                    Yorum yorum = new Yorum();
-                    yorum.ID = okuyucu.GetInt32(0);
-                    yorum.MakaleID = okuyucu.GetInt32(1);
-                    yorum.UyeID = okuyucu.GetInt32(2);
-                    yorum.Icerik = okuyucu.GetString(3);
-                    yorum.EklemeTarihi = okuyucu.GetDateTime(4);
-                    yorum.Durum = okuyucu.GetBoolean(5);
-                    yorum.UyeIsim = okuyucu.GetString(6) + " " + okuyucu.GetString(7);
+                    Yorum yorum = new Yorum
+                    {
+                        ID = okuyucu.GetInt32(0),
+                        MakaleID = okuyucu.GetInt32(1),
+                        UyeID = okuyucu.GetInt32(2),
+                        Icerik = okuyucu.GetString(3),
+                        EklemeTarihi = okuyucu.GetDateTime(4),
+                        Durum = okuyucu.GetBoolean(5)
+                    };
                     yorumlar.Add(yorum);
                 }
-                return yorumlar;
             }
-            catch
+            catch (Exception ex)
             {
-                return yorumlar;
+                // Hata ile ilgili loglama veya hata mesajı yönetimi
+                Console.WriteLine("Hata: " + ex.Message);
             }
             finally
             {
                 baglanti.Close();
             }
+
+            return yorumlar;
         }
         public List<Yorum> UyeninYorumlariniGetir(int uyeID)
         {
