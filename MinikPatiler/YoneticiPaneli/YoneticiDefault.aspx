@@ -4,8 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="content-container">
-        <h1>🏠 Anasayfa</h1>
-        <p>Yönetim panelinin ana sayfasına hoş geldiniz.</p>
+        <h3>Yönetim paneline hoş geldiniz.</h3>
         <div>
        <img src="Resimler/dog1.jpg" />
         </div>

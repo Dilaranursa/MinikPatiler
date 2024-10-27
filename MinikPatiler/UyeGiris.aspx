@@ -4,9 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="genelkapsayicisol">
-    <div class="logo">
-        <img src="Resimler/logo.png" class="t_dog" />
-    </div>
     <div class="formkaplayici">
         <h2>Üye Girişi</h2>
         <div>

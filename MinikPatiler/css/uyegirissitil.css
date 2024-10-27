@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 1000px;
-    background: linear-gradient( 190deg, #191a18, #3c3336, #deaad5, #994014, #ce6716 ); /*CSS'de renk geçişleri(gradients) birden fazla renkler arasında yumuşak geçiş sağlar*/
+    /*background: linear-gradient( 190deg, #191a18, #3c3336, #deaad5, #994014, #ce6716 );*/ /*CSS'de renk geçişleri(gradients) birden fazla renkler arasında yumuşak geçiş sağlar*/
 }
 
 .genelkapsayicisol {

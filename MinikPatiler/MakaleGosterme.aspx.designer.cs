@@ -69,15 +69,6 @@ namespace MinikPatiler
         protected global::System.Web.UI.WebControls.Literal ltrl_goruntuleme;
 
         /// <summary>
-        /// buton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buton;
-
-        /// <summary>
         /// ltrl_icerik control.
         /// </summary>
         /// <remarks>
@@ -85,5 +76,41 @@ namespace MinikPatiler
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal ltrl_icerik;
+
+        /// <summary>
+        /// tb_yorumIcerik control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tb_yorumIcerik;
+
+        /// <summary>
+        /// lbtn_yorumGonder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtn_yorumGonder;
+
+        /// <summary>
+        /// pnl_bilgi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnl_bilgi;
+
+        /// <summary>
+        /// lbl_bilgiMesaji control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_bilgiMesaji;
     }
 }

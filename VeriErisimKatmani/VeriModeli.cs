@@ -142,7 +142,7 @@ namespace VeriErisimKatmani
     
     #endregion
 
-    #region Kullanıcılar Metotları
+        #region Kullanıcılar Metotları
 
     public List<Uyeler> KullaniciListe()
         {
@@ -914,8 +914,8 @@ namespace VeriErisimKatmani
                 komut.Parameters.AddWithValue("@makaleID", yorum.MakaleID);
                 komut.Parameters.AddWithValue("@uyeID", yorum.UyeID);
                 komut.Parameters.AddWithValue("@icerik", yorum.Icerik);
-                komut.Parameters.AddWithValue("@eklemetarihi", yorum.EklemeTarihi);
-                komut.Parameters.AddWithValue("@durum", yorum.Durum);
+                komut.Parameters.AddWithValue("@eklemetarihi", DateTime.Now);
+                komut.Parameters.AddWithValue("@durum", false);
                 
                 baglanti.Open();
                 komut.ExecuteNonQuery();

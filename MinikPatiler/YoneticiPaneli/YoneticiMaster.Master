@@ -47,8 +47,7 @@
                         <li><a href="MakaleEkle.aspx">📝 Makale Ekle</a></li>
                         <li><a href="MakaleListele.aspx">📄 Makale Listele</a></li>
                         <li><a href="Yorumlar.aspx">💬 Yorumlar</a></li>
-                        <li><a href="YoneticiDefault.aspx">❤️ Beğeni</a></li>
-                       <asp:LinkButton ID="lbt_cikis" runat="server" CssClass="cıkıs" OnClick="lbt_cikis_Click">🚪 Çıkış Yap</asp:LinkButton>
+                        <asp:LinkButton ID="lbt_cikis" runat="server" CssClass="cıkıs" OnClick="lbt_cikis_Click">🚪 Çıkış Yap</asp:LinkButton>
                     </ul>
                 </div>
             </div>

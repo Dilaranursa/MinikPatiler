@@ -28,14 +28,42 @@ namespace MinikPatiler
                 ltrl_yayinlama.Text = Convert.ToString(m.EklemeTarihi);
                 ltrl_yazar.Text = m.Yazar;
                 ltrl_goruntuleme.Text = Convert.ToString(m.GoruntulemeSayisi);
-                img_resim.ImageUrl = "Resimler/MakaleResimleri/" + m.KapakResim;
+                img_resim.ImageUrl = "Resimlerr/MakaleResimleri/" + m.KapakResim;
             }
 
         }
 
-        protected void buton_Click(object sender, EventArgs e)
+        protected void lbtn_yorumGonder_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Yorumlary.aspx");
+            int id = Convert.ToInt32(Request.QueryString["makale"]);
+            Uyeler u = (Uyeler)Session["GirisUye"];
+            
+            if (u != null)
+            {
+                Yorum y = new Yorum();
+                y.MakaleID = id;
+                y.UyeID = u.UyeID;
+                y.Icerik = tb_yorumIcerik.Text;
+                if (vm.YorumEkle(y))
+                {
+                    pnl_bilgi.Visible = true;
+                    lbl_bilgiMesaji.Visible = true;
+                    lbl_bilgiMesaji.Text = "Yorum başarıyla eklenmiştir.";
+                }
+                else
+                {
+                    pnl_bilgi.Visible = true;
+                    lbl_bilgiMesaji.Visible = true;
+                    lbl_bilgiMesaji.Text = "Yorum eklenirken bir hata oluştu.";
+                }
+            }
+            else
+            {
+                pnl_bilgi.Visible = true;
+                lbl_bilgiMesaji.Visible = true;
+                lbl_bilgiMesaji.Text = "Yorum eklemek için lütfen giriş yapın.";
+            }
+
         }
     }
 }
